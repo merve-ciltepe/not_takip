@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-warning">
+                <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Ders Düzenle</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ders Adı</label>
+                        <input type="text" name="ders_adi" class="form-control" 
+                               value="{{ ders.ders_adi }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Kredi</label>
+                        <input type="number" name="kredi" class="form-control" 
+                               min="1" max="8" value="{{ ders.kredi }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Öğretmen</label>
+                        <input type="text" name="ogretmen" class="form-control" 
+                               value="{{ ders.ogretmen }}" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning w-100">
+                            <i class="bi bi-check-circle"></i> Güncelle
+                        </button>
+                        <a href="/dersler" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> İptal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="row text-center mb-5">
+    <div class="col-12">
+        <h2 class="display-5 fw-bolder mb-3 text-primary">
+            <i class="bi bi-mortarboard"></i> Öğrenci Not Takip Sistemi
+        </h2>
+        <p class="text-muted fs-5">Hoş geldiniz! Sistem istatistikleri aşağıda yer almaktadır.</p>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="stat-card blue">
+            <i class="bi bi-person-vcard mb-3"></i>
+            <h3>{{ ogrenci_sayisi }}</h3>
+            <p>Toplam Öğrenci</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card green">
+            <i class="bi bi-journal-text mb-3"></i>
+            <h3>{{ ders_sayisi }}</h3>
+            <p>Toplam Ders</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card yellow">
+            <i class="bi bi-clipboard-data mb-3"></i>
+            <h3>{{ not_sayisi }}</h3>
+            <p>Toplam Not</p>
+        </div>
+    </div>
+</div>
+
+{% if session.rol == 'admin' %}
+<div class="row g-3">
+    <div class="col-12">
+        <h5 class="text-muted fw-semibold mb-3"><i class="bi bi-lightning"></i> Hızlı İşlemler</h5>
+    </div>
+    <div class="col-md-4">
+        <a href="/ogrenci/ekle" class="btn btn-primary w-100 py-3 shadow-sm">
+            <i class="bi bi-person-plus me-2"></i> Öğrenci Ekle
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/ders/ekle" class="btn btn-success w-100 py-3 shadow-sm">
+            <i class="bi bi-journal-text me-2"></i> Ders Ekle
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/not/ekle" class="btn btn-warning w-100 py-3 shadow-sm">
+            <i class="bi bi-clipboard-plus me-2"></i> Not Ekle
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-person-plus"></i> Yeni Öğrenci Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ad</label>
+                        <input type="text" name="ad" class="form-control" placeholder="Örn: Ali" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Soyad</label>
+                        <input type="text" name="soyad" class="form-control" placeholder="Örn: Yılmaz" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Örn: ali@gmail.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Öğrenci No</label>
+                        <input type="text" name="ogrenci_no" class="form-control" placeholder="Örn: 2024001" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-check-circle"></i> Kaydet
+                        </button>
+                        <a href="/ogrenciler" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> İptal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

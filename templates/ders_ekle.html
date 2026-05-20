@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-journal-text"></i> Yeni Ders Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ders Adı</label>
+                        <input type="text" name="ders_adi" class="form-control" placeholder="Örn: Matematik" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Kredi</label>
+                        <input type="number" name="kredi" class="form-control" min="1" max="8" placeholder="Örn: 3" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Öğretmen</label>
+                        <input type="text" name="ogretmen" class="form-control" placeholder="Örn: Dr. Ahmet Yılmaz" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-check-circle"></i> Kaydet
+                        </button>
+                        <a href="/dersler" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> İptal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

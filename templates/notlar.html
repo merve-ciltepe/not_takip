@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold text-primary">
+        <i class="bi bi-clipboard-data"></i> Notlar
+    </h3>
+    <a href="/not/ekle" class="btn btn-warning">
+        <i class="bi bi-clipboard-plus"></i> Yeni Not
+    </a>
+</div>
+
+{% if notlar %}
+<div class="card shadow">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-primary">
+                <tr>
+                    <th>Öğrenci</th>
+                    <th>Ders</th>
+                    <th>Not Türü</th>
+                    <th>Not</th>
+                    <th>Tarih</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in notlar %}
+                <tr>
+                    <td>{{ n.ad }} {{ n.soyad }}</td>
+                    <td>{{ n.ders_adi }}</td>
+                    <td>{{ n.not_turu }}</td>
+                    <td>
+                        <span class="badge {% if n.not_degeri >= 50 %}bg-success{% else %}bg-danger{% endif %}">
+                            {{ n.not_degeri }}
+                        </span>
+                    </td>
+                    <td>{{ n.tarih }}</td>
+                    <td>
+                        {% if session.rol == 'admin' %}
+                        <a href="/not/duzenle/{{ n.id }}" class="btn btn-sm btn-warning">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <form method="POST" action="/not/sil/{{ n.id }}" style="display:inline;" onsubmit="return confirm('Notu silmek istediğinize emin misiniz?')">
+    <button type="submit" class="btn btn-sm btn-danger">
+        <i class="bi bi-trash3"></i>
+    </button>
+</form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle"></i> Henüz not eklenmemiş.
+</div>
+{% endif %}
+{% endblock %}

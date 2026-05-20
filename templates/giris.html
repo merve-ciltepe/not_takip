@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block icerik %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">
+                    <i class="bi bi-mortarboard"></i> Not Takip Sistemi
+                </h4>
+                <small>Lütfen giriş yapınız</small>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Kullanıcı Adı</label>
+                        <input type="text" name="kullanici_adi" class="form-control"
+                               placeholder="Kullanıcı adınızı giriniz" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Şifre</label>
+                        <input type="password" name="sifre" class="form-control"
+                               placeholder="Şifrenizi giriniz" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
+                    </button>
+                </form>
+                <hr>
+                <small class="text-muted">
+                    <strong>Admin:</strong> admin / admin123<br>
+                    <strong>Öğrenci:</strong> ogrenci / ogrenci123
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
