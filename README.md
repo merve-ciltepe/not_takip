@@ -31,6 +31,7 @@ python app.py
 
 - **Admin**: kullanıcı adı: `admin` / şifre: `admin123`
 - **Öğrenci**: kullanıcı adı: `ogrenci` / şifre: `ogrenci123`
+- ⚠️ Kurulum sonrası admin şifresini değiştirmeyi unutmayın!
 
 ## ✨ Özellikler
 
